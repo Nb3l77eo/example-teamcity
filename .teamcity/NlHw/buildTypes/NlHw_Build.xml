@@ -4,11 +4,12 @@
   <description />
   <settings>
     <options>
+      <option name="artifactRules" value="target/*.jar =&gt; target" />
       <option name="checkoutMode" value="ON_SERVER" />
     </options>
     <parameters />
     <build-runners>
-      <runner id="RUNNER_1" name="Maven not equals master" type="Maven2">
+      <runner id="RUNNER_1" name="Maven not equals master (test)" type="Maven2">
         <conditions>
           <does-not-equal name="teamcity.build.branch" value="master" />
         </conditions>
@@ -22,7 +23,7 @@
           <param name="userSettingsSelection" value="userSettingsSelection:default" />
         </parameters>
       </runner>
-      <runner id="RUNNER_2" name="Maven equals master" type="Maven2">
+      <runner id="RUNNER_2" name="Maven equals master (deploy)" type="Maven2">
         <conditions>
           <equals name="teamcity.build.branch" value="master" />
         </conditions>
